@@ -1,8 +1,8 @@
 from flask import Flask
 from flask_restx import Api, Resource
-from recipes import Recipes
-from refrigerators import Refrigerators
-from user import User
+from views.recipes import Recipes
+from views.refrigerators import Refrigerators
+from views.user import User
 
 app = Flask(__name__)
 api = Api(app)
