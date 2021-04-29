@@ -4,9 +4,10 @@ from views.recipes import Recipes
 from views.refrigerators import Refrigerators
 from views.user import User
 
-app = Flask(__name__)
-api = Api(app)
 
+app = Flask(__name__)
+
+api = Api(app)
 api.add_namespace(Recipes, '/recipes')
 api.add_namespace(Refrigerators, '/refrigerators')
 api.add_namespace(User, '/user')
