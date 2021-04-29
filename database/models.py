@@ -5,7 +5,7 @@ class Ingredients(db.Document):
     category = db.StringField(required=True)
     name = db.StringField(required=True)
     icon_url = db.URLField(required=True)
-
+    
     def to_json(self):
         return {"category": self.name,
                 "name": self.name,
