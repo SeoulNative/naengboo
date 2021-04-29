@@ -3,6 +3,7 @@
 - Python 3.7+
 - Flask 1.1.2
 - flask-restx 0.3.0
+- flask-mongoengine
 ## How to run (Local)
 ```
 (venv) $ pip install -r requirements.txt
