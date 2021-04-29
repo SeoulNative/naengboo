@@ -8,6 +8,6 @@ app.config['MONGODB_SETTINGS'] = {
     'host': '3.36.96.53',
     'port': 27017,
     'username': 'theseoulnative',
-    'password': 'tjdnf0401!'
+    'password': ''
 }
 db = MongoEngine(app)
