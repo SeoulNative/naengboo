@@ -4,7 +4,6 @@ from views.recipes import Recipes
 from views.refrigerators import Refrigerators
 from views.user import User
 
-
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
@@ -19,6 +18,6 @@ class Test(Resource):
     def get(self):
         return {"message": "test success"}
 
-
+print(__name__)
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
