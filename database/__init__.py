@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 
 load_dotenv(verbose=True)
 app = Flask(__name__)
-print("TEST?", os.getenv("TEST"))
 if os.getenv("TEST") is None:
     app.config['MONGODB_SETTINGS'] = {
         'db': os.getenv('MONGO_DBNAME'),
