@@ -2,3 +2,6 @@ Flask
 flask-restx
 flask-mongoengine
 python-dotenv
+pytest
+pymongo
+mongomock
