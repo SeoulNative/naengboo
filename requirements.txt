@@ -1,4 +1,0 @@
-Flask
-flask-restx
-flask-mongoengine
-python-dotenv
