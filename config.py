@@ -10,7 +10,6 @@ else:
     raise Exception('.env does not exist.')
 
 mongo_uri = os.getenv('MONGO_URI')
-mongo_test_uri = os.getenv('MONGO_TEST_URI')
 
 
 class Config:
@@ -30,7 +29,6 @@ class DevConfig(Config):
 class TestConfig(Config):
     DEBUG = True
     TESTING = True
-    MONGO_URI = mongo_test_uri
 
 
 class ProdConfig(Config):

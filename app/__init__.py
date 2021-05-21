@@ -1,14 +1,13 @@
 from flask import Flask
-from pymongo import MongoClient, uri_parser
 from app.extensions import api
 from config import config_by_name
+import pymongo, mongomock
 
 
 db = None
 
 
 def register_extensions(app):
-    # Registers flask extensions
     api.init_app(app)
 
 
@@ -16,11 +15,15 @@ def init_db(app):
     global db
 
     MONGO_URI = app.config['MONGO_URI']
-    parsed_uri = uri_parser.parse_uri(MONGO_URI)
+    if MONGO_URI is None:
+        raise Exception('MONGO_URI not exist in .env file')
+    parsed_uri = pymongo.uri_parser.parse_uri(MONGO_URI)
     db_name = parsed_uri["database"]
-    print("MONGO_URI:", MONGO_URI)
 
-    client = MongoClient(MONGO_URI)
+    if app.config['TESTING']:
+        client = mongomock.MongoClient(MONGO_URI)
+    else:
+        client = pymongo.MongoClient(MONGO_URI)
     db = client[db_name]
 
 
