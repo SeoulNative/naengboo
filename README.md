@@ -10,6 +10,8 @@
 
 ### Installation
 
+Before installation, you must prepare the `.env` file in root directory.
+
 [check poetry official installation docs](https://python-poetry.org/docs/#installation)
 
 ```bash
@@ -26,11 +28,14 @@ poetry install
 ### Run
 
 ```python
+# check env
+vim .env
+
 # execute virtualenv
 poetry shell
 
 # run flask server
-python app/app.py
+flask run
 ```
 
 ## Q&A
