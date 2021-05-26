@@ -1,11 +1,7 @@
-import os
+from utils import dotenv
+dotenv.load_file(".env")
 
-from dotenv import load_dotenv
-
-dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
-if os.path.exists(dotenv_path):
-    load_dotenv(dotenv_path)
-
+# For getting MONGO_URI properly, init config after loading .env
 from app import create_app
-
+import os
 app = create_app(os.getenv("FLASK_CONFIG") or "default")
