@@ -30,13 +30,14 @@ Please specify your app's environment variables in a .env file.
 
 ```python
 # .env file example
-FLASK_APP=naengboo
+FLASK_APP='naengboo'
 
 # configs: dev, test, prod, default(uses DevConfig)
-FLASK_CONFIG=dev
+FLASK_CONFIG='dev'
 
-# mongodb conn format: "mongodb://[username:password@]host[:port][/[defaultauthdb][?options]]"
-MONGO_URI="mongodb://localhost:27017/naengboo"
+# mongodb conn format: 'mongodb://[username:password@]host[:port][/[defaultauthdb][?options]]'
+# use single quote if you use ! in your string
+MONGO_URI='mongodb://localhost:27017/naengboo'
 ```
 
 ```python
