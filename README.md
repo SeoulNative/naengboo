@@ -1,6 +1,6 @@
 # 냉장고를 부탁해(가제) - Backend
 
-## Prerequisites
+## Pre-requisites
 
 - Python 3
 - Poetry
@@ -8,7 +8,7 @@
 
 ## Getting Started
 
-### Install poetry
+### Installation
 
 [check poetry official installation docs](https://python-poetry.org/docs/#installation)
 
@@ -18,17 +18,32 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 
 # check installation
 poetry --version
+
+# install dependencies
+poetry install
 ```
 
-### Run flask
+### Run
+
+First, you must prepare the `.env` file in root directory.  
+Please specify your app's environment variables in a .env file.
+
+```python
+# .env file example
+FLASK_APP='naengboo'
+
+# configs: dev, test, prod, default(uses DevConfig)
+FLASK_CONFIG='dev'
+
+# mongodb conn format: 'mongodb://[username:password@]host[:port][/[defaultauthdb][?options]]'
+# use single quote if you use ! in your string
+MONGO_URI='mongodb://localhost:27017/naengboo'
+```
 
 ```python
 # execute virtualenv
 poetry shell
 
-# install dependencies
-poetry install
-
 # run flask server
-python app.py
+flask run
 ```

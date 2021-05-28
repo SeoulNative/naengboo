@@ -1,5 +1,5 @@
-from flask_restx import Resource, Api, Namespace
-from flask import request, jsonify
+from flask_restx import Resource, Namespace
+
 
 Recipes = Namespace(
     name="Recipes",
