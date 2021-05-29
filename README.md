@@ -30,7 +30,7 @@ Please specify your app's environment variables in a .env file.
 
 ```python
 # .env file example
-FLASK_APP='naengboo'
+FLASK_APP='app'
 
 # configs: dev, test, prod, default(uses DevConfig)
 FLASK_CONFIG='dev'
