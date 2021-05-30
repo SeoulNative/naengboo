@@ -25,6 +25,7 @@ def test():
     '''
     run pytest
     '''
+    os.environ["FLASK_CONFIG"] = "test"
     os.system("pytest")
 
 if __name__ == '__main__':
