@@ -1,4 +1,7 @@
-import os
+import os, dotenv
+
+
+dotenv.load_dotenv()
 
 
 class Config:
