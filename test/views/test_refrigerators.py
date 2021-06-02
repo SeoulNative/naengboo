@@ -7,10 +7,10 @@ from test.views.params import refrigerators_params as params
 from utils.test_utils import subset_checker 
 
 
-@pytest.mark.parametrize("input, output", params.test_post_ingredients())
+@pytest.mark.parametrize('input, output', params.test_post_ingredients())
 def test_post_ingredients(client, input, output):
     response = client.post(
-        "/refrigerators/ingredients",
+        '/refrigerators/ingredients',
         json=input,
     )
 
