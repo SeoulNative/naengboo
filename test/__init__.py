@@ -12,8 +12,8 @@ flask_context = app.create_app()
 db = app.db
 
 
-if "mongomock" not in str(app.db["_store"]):
-    raise Exception("Pytest requires test(mock) db")
+if 'mongomock' not in str(app.db['_store']):
+    raise Exception('Pytest requires test(mock) db')
     
 
 @pytest.fixture(scope='function')
@@ -30,7 +30,7 @@ def flush_db():
 
 
 def load_documents():
-    collection_json_file_path = path.join(path.dirname(__file__), "mock_data", '*')
+    collection_json_file_path = path.join(path.dirname(__file__), 'mock_data', '*')
     collection_json_file_ls = glob(collection_json_file_path)
     for collection_json_file_path in collection_json_file_ls:
         with open(collection_json_file_path, 'r') as file:
