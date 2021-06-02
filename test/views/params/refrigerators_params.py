@@ -1,11 +1,11 @@
 def test_post_ingredients():
     cast_list = [
         {
-            "input": {
-                "username": "db-post-case-1",
-                "msg": "db-post-test-case-1",
+            'input': {
+                'username': 'db-post-case-1',
+                'msg': 'db-post-test-case-1',
             },
-            "output": [
+            'output': [
                 {
                     'username': 'db-original',
                     'msg': 'original',
@@ -17,11 +17,11 @@ def test_post_ingredients():
             ]
         },
         {
-            "input": {
-                "username": "db-post-case-2",
-                "msg": "db-post-test-case-2",
+            'input': {
+                'username': 'db-post-case-2',
+                'msg': 'db-post-test-case-2',
             },
-            "output": [
+            'output': [
                 {
                     'username': 'db-original',
                     'msg': 'original',
@@ -33,4 +33,4 @@ def test_post_ingredients():
             ]
         },
     ]
-    return [(test_case["input"], test_case["output"]) for test_case in cast_list]
+    return [(test_case['input'], test_case['output']) for test_case in cast_list]
