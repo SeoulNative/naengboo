@@ -5,6 +5,7 @@ from pathlib import Path
 from glob import glob
 import pytest
 
+from test.mock import mock_data_dict
 import app
 
 
@@ -18,7 +19,7 @@ if 'mongomock' not in str(app.db['_store']):
 @pytest.fixture(scope='function')
 def client():
     with flask_context.test_client() as client:
-        load_documents()
+        insert_mock_data()
         yield client
         flush_db()
 
@@ -28,15 +29,10 @@ def flush_db():
         app.db.drop_collection(collection_name)
 
 
-def load_documents():
-    collection_json_file_path = path.join(path.dirname(__file__), 'mock_data', '*')
-    collection_json_file_ls = glob(collection_json_file_path)
-    for collection_json_file_path in collection_json_file_ls:
-        with open(collection_json_file_path, 'r') as file:
-            data = file.read()
-            data = loads(data)
-
-        collection_name = Path(collection_json_file_path).stem
+def insert_mock_data():
+    for mock_item in mock_data_dict.items():
+        collection_name = mock_item[0]
+        data = mock_item[1]
 
         if len(data) == 0:
             pass
@@ -44,4 +40,3 @@ def load_documents():
             app.db[collection_name].insert_one(data[0])
         else:
             app.db[collection_name].insert_many(data)
-    
