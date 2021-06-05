@@ -9,7 +9,6 @@ import app
 
 
 flask_context = app.create_app()
-db = app.db
 
 
 if 'mongomock' not in str(app.db['_store']):
@@ -25,8 +24,8 @@ def client():
 
 
 def flush_db():
-    for collection_name in db.list_collection_names():
-        db.drop_collection(collection_name)
+    for collection_name in app.db.list_collection_names():
+        app.db.drop_collection(collection_name)
 
 
 def load_documents():
@@ -42,7 +41,7 @@ def load_documents():
         if len(data) == 0:
             pass
         elif len(data) == 1:
-            db[collection_name].insert_one(data[0])
+            app.db[collection_name].insert_one(data[0])
         else:
-            db[collection_name].insert_many(data)
+            app.db[collection_name].insert_many(data)
     
