@@ -1,6 +1,7 @@
 import os, dotenv
 
 
+# TODO(hoyeon94): fix this to load dotenv only once, what about using app.config?
 dotenv.load_dotenv()
 
 
