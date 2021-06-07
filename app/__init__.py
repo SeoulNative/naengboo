@@ -18,7 +18,7 @@ def init_db(app):
     if MONGO_URI is None:
         raise Exception('MONGO_URI not exist in .env file')
     parsed_uri = pymongo.uri_parser.parse_uri(MONGO_URI)
-    db_name = parsed_uri["database"]
+    db_name = parsed_uri['database']
 
     if app.config['TESTING']:
         client = mongomock.MongoClient(MONGO_URI)
@@ -30,14 +30,14 @@ def init_db(app):
 
 
 def create_app():
-    dotenv_path = os.path.join(os.getcwd(), ".env") # ~/naengboo/.env
+    dotenv_path = os.path.join(os.getcwd(), '.env') # ~/naengboo/.env
     if os.path.exists(dotenv_path):
         dotenv.load_dotenv()
     else:
         raise Exception('.env file does not exist.')
 
     app = Flask(__name__)
-    config_name = os.getenv("FLASK_CONFIG") or "default"
+    config_name = os.getenv('FLASK_CONFIG') or 'default'
     app.config.from_object(config_by_name[config_name])
 
     init_db(app)

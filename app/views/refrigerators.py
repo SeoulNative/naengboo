@@ -1,5 +1,5 @@
 from flask_restx import Namespace, Resource
-from flask import jsonify
+from flask import request, jsonify
 from bson.json_util import dumps
 from app import db
 
@@ -15,12 +15,15 @@ Refrigerators = Namespace(
 @Refrigerators.route('/ingredients')
 class Ingredients(Resource):
     def post(self):
+        # parse post request body
+        req_json = request.json
+
         # post one document
         test = db['test']
-        test.insert_one({'username' : 'db-test','msg' : 'wow it works'})
-        
+        test.insert_one(req_json)
+
         # query the post result
         result = test.find()
-        for doc in result:
-            resp = dumps(doc)
+        resp = dumps(result)
+
         return jsonify(resp)
